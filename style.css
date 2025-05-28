@@ -1,137 +1,135 @@
-/* General Layout Reset */
+/* -----------------------------
+   Sky & Tarmac Dashboard CSS
+   Palette: Cool‐Blue, Charcoal, Taxi‐Line Yellow
+----------------------------- */
+
+/* General Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    padding: 20px;
-    background-color: #f4f4f4;
+  /* keep your restaurant.png background or replace as desired */
+  background: url('restaurant.png') no-repeat center center fixed;
+  background-size: cover;
+  font-family: Arial, sans-serif;
+  padding: 20px;
 }
 
-/* Vertical Container Layout */
+/* Container Layout */
 .vertical-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Heading and Item Section */
-.item {
-    margin-bottom: 20px;
-    width: 100%;
-    max-width: 960px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-h2 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-    color: #333;
-}
-
-p {
-    font-size: 1rem;
-    margin-bottom: 10px;
-}
-
-strong {
-    font-weight: 700;
-}
-
-a {
-    color: #3498db;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-/* Widget Section (Horizontal layout for widgets) */
-.horizontal-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px; /* Replaces margin-right for consistent spacing */
-    width: 100%;
-    max-width: 960px;
-    margin-bottom: 20px;
-    padding-top: 40px;
-}
-
-.horizontal-container .item {
-    flex: 1;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Chart Container */
+/* Panels */
+.item,
 .chart-container {
-    width: 100%;
-    max-width: 960px;
-    margin-bottom: 20px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 100%;
+  max-width: 960px;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #F5F5F5;   /* very light grey */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-/* SVG Styling */
+/* Header Text */
+h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #37474F;  /* blue-grey */
+}
+p, h2, label {
+  color: #37474F;
+}
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+/* Dropdown */
+.chart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;  /* left-align label & select */
+}
+.chart-container label {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+.chart-container select {
+  padding: 8px 12px;
+  font-size: 1rem;
+  border: 2px solid #1976D2; /* sky blue border */
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  color: #37474F;
+  margin-bottom: 40px;       /* space before chart */
+  outline: none;
+}
+
+/* SVG Chart */
 .chart-container svg {
-    display: block;
-    margin: 0 auto;
-    width: 100%;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
 
-/* Axis label styling */
+/* Axis Styling */
+.chart-container .x-axis path,
+.chart-container .x-axis line,
+.chart-container .y-axis path,
+.chart-container .y-axis line {
+  stroke: #455A64;           /* charcoal */
+}
+.chart-container .x-axis text,
+.chart-container .y-axis text {
+  fill: #455A64;
+  font-size: 12px;
+}
 .axis-label {
-    font-size: 12px;
-    fill: #666;
-    text-anchor: middle;
+  fill: #455A64;
+  font-size: 12px;
+  text-anchor: middle;
 }
 
-/* Responsive adjustments */
+/* Line & Points */
+.chart-container path {
+  fill: none;
+  stroke: #1976D2;            /* sky blue */
+  stroke-width: 2;
+}
+.chart-container circle {
+  fill: #1976D2;
+  r: 6;
+}
+
+/* Tooltip */
+.tooltip {
+  position: absolute;
+  pointer-events: none;
+  background: #FFC107;        /* taxi-line yellow */
+  color: #000;
+  border-radius: 4px;
+  padding: 6px 8px;
+  font-size: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  opacity: 0;
+  transition: opacity 0.1s ease-in-out;
+  z-index: 1000;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-    .item {
-        padding: 15px;
-    }
-
-    h1 {
-        font-size: 1.8rem;
-    }
-
-    h2 {
-        font-size: 1.25rem;
-    }
-
-    .horizontal-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .horizontal-container .item {
-        margin-bottom: 10px;
-    }
-
-    .horizontal-container .item:last-child {
-        margin-bottom: 0;
-    }
+  .item, .chart-container {
+    padding: 15px;
+  }
+  h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.25rem; }
+  .chart-container select { width: 100%; }
 }
-
-/* CSS generated with assistance from ChatGPT and DeepSeek. */

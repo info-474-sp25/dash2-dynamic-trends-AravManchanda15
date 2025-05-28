@@ -1,43 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard 2</title>
-    <script src="https://d3js.org/d3.v7.min.js"></script> <!-- Load D3 library -->
-    <link rel="stylesheet" href="style.css"> <!-- Connect to style.css for styles -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard 2</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script> <!-- Load D3 library -->
+  <link rel="stylesheet" href="style.css"> <!-- Connect to style.css for styles -->
 </head>
 <body class="vertical-container">
-    <!-- HEADER -->
-    <div class="item">
-        <h1>Aircraft Incidents Dashboard</h1>
-        <p><strong>Author(s):</strong> Arav Manchanda</p>
-        <p><strong>Documentation:</strong> <a href="YOUR LINK HERE" target="_blank"></a></p>
-    </div>
-    
-    <!-- INTERACTIVE WIDGETS -->
-    <div class="item horizontal-container">
-        <div class="item"><!-- Your widget 1 code goes here. -->
-            <!-- Widget 1 title -->
-            <!-- Widget 1 element -->
-             
-            <div class="item">
-                <h2>Select Location</h2>
-                <select id="locationDropdown">
-                    <option value="ALL">All Locations</option>
-                </select>
-            </div>
+  <!-- HEADER -->
+  <div class="item">
+    <h1>Aircraft Incidents Dashboard</h1>
+    <p><strong>Author(s):</strong> Arav Manchanda</p>
+    <p><strong>Documentation:</strong> <a href="YOUR LINK HERE" target="_blank"></a></p>
+  </div>
 
-        </div>
+  <!-- CHART(S) -->
+  <div class="item chart-container">
+    <!-- Dropdown control for selecting a location -->
+    <label for="locationDropdown">Select Location</label>
+    <select id="locationDropdown">
+      <option value="ALL">All Locations</option>
+    </select> <!-- If you change this ID name, you must change it in main.js too -->
 
-        
-    <!-- CHART(S) -->
-    <div class="item chart-container">
-        <h2>[Chart 1 Title]</h2>
-        <svg id="lineChart1" width="900" height="400"></svg> <!-- If you change this ID name, you must change it in main.js too -->
-    </div>
-    <script src="main.js"></script>
+    <!-- Chart 1 Title -->
+    <h2>Aircraft Incidents Over Time</h2>
+    <svg id="lineChart1" width="900" height="400"></svg>
+  </div>
+
+  <script src="main.js"></script>
 </body>
 </html>
-
-<!-- Starter code polished with assistance from DeepSeek. -->
